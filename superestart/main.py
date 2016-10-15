@@ -27,7 +27,7 @@ def cli():
                         help="crontab like string")
     parser.add_argument("--api_endpoint",
                         type=str,
-                        dest="api",
+                        dest="api_endpoint",
                         required=True,
                         help="supervisord api endpoint")
     return parser

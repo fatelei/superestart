@@ -14,6 +14,7 @@ from superestart import __version__
 
 setup(
     name="superestart",
+    version=__version__,
     description="A supervisord plugin used to autorestart program by specific time",
     author="Wang Lei",
     author_email="fatelei@gmail.com",
