@@ -26,7 +26,7 @@ setup(
     url="https://github.com/fatelei/superestart",
     entry_points={
         "console_scripts": [
-            "superestart = superestart:main"
+            "superestart = superestart.main:main"
         ]
     },
     classifiers=[
