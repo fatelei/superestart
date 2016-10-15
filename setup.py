@@ -9,7 +9,7 @@ A supervisord plugin used to autorestart program by specific time.
 
 from setuptools import setup
 
-from supercron import __version__
+from superestart import __version__
 
 
 setup(
