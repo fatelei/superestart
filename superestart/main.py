@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 
 import argparse
+import logging
 import xmlrpclib
 
 from datetime import datetime
@@ -52,16 +53,19 @@ def main():
     while True:
         listener.ready()
         headers, _ = listener.wait()
-        if headers["eventname"] == "TICK":
+        if "TICK" in headers["eventname"]:
             cur_now = datetime.now()
             if cur_now >= next_execute_time:
                 if group_name:
                     server.supervisor.stopProcessGroup(group_name)
                     server.supervisor.startProcessGroup(group_name)
+                    logging.info("restart {} at {}".format(group_name, cur_now))
                 elif program_name:
                     server.supervisor.stopProcess(program_name)
                     server.supervisor.startProcess(program_name)
+                    logging.info("restart {} at {}".format(program_name, cur_now))
                 next_execute_time = time_iter.get_next(datetime)
+                logging.info("next restart time at {}".format(next_execute_time))
         listener.ok()
 
 
