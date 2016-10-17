@@ -51,7 +51,6 @@ def main():
     program_name = args.program_name
 
     while True:
-        listener.ready()
         headers, _ = listener.wait()
         if "TICK" in headers["eventname"]:
             cur_now = datetime.now()
@@ -66,7 +65,7 @@ def main():
                     logging.info("restart {} at {}".format(program_name, cur_now))
                 next_execute_time = time_iter.get_next(datetime)
                 logging.info("next restart time at {}".format(next_execute_time))
-        listener.ok()
+            listener.ok()
 
 
 if __name__ == "__main__":
