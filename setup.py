@@ -19,7 +19,7 @@ setup(
     author="Wang Lei",
     author_email="fatelei@gmail.com",
     install_requires=[
-        "supervisor==3.2.3",
+        "supervisor==3.2.4",
         "croniter==0.3.12"
     ],
     packages=["superestart"],
